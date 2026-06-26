@@ -41,6 +41,13 @@ const palettes = [
     families: ["purple", "mauve", "pink", "green"],
     colors: ["#7d548e", "#bd84a7", "#e8a1aa", "#788d61", "#485f4a"],
   },
+  {
+    name: "Rouge passioné",
+    title: "Amour écarlate",
+    mood: "Un bouquet pour ma petite chérie d'amouuuur.",
+    families: ["red", "pink", "coral", "purple"],
+    colors: ["#c92f2f", "#df7891", "#e8a1aa", "#ee8c70", "#86609a"],
+  },
 ];
 
 const flowerDatabase = [
