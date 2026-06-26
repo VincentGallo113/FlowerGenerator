@@ -37,18 +37,18 @@ const palettes = [
 ];
 
 const flowerDatabase = [
-  { name: "Rose anglaise", family: "pink", form: "rose", petals: 18, size: 112, role: "coeur", meaning: "amour doux" },
-  { name: "Pivoine", family: "pink", form: "peony", petals: 22, size: 132, role: "volume", meaning: "chance" },
-  { name: "Renoncule", family: "coral", form: "rose", petals: 16, size: 96, role: "detail", meaning: "charme" },
-  { name: "Dahlia", family: "coral", form: "dahlia", petals: 24, size: 118, role: "etoile", meaning: "joie" },
-  { name: "Cosmos", family: "mauve", form: "simple", petals: 9, size: 92, role: "legerete", meaning: "harmonie" },
-  { name: "Anemone", family: "purple", form: "simple", petals: 8, size: 96, role: "contraste", meaning: "attention" },
-  { name: "Lavande", family: "purple", form: "sprig", petals: 12, size: 88, role: "parfum", meaning: "calme" },
-  { name: "Hortensia", family: "blue", form: "cluster", petals: 20, size: 126, role: "nuage", meaning: "gratitude" },
-  { name: "Myosotis", family: "blue", form: "cluster", petals: 14, size: 84, role: "souvenir", meaning: "memoire" },
-  { name: "Marguerite creme", family: "cream", form: "simple", petals: 12, size: 98, role: "lumiere", meaning: "franchise" },
-  { name: "Freesia", family: "yellow", form: "sprig", petals: 9, size: 90, role: "accent", meaning: "confiance" },
-  { name: "Mimosa", family: "yellow", form: "cluster", petals: 18, size: 82, role: "soleil", meaning: "tendresse" },
+  { name: "Rose anglaise", family: "pink", form: "rose", petals: 18, size: 116, role: "coeur", meaning: "amour doux" },
+  { name: "Pivoine", family: "pink", form: "peony", petals: 24, size: 136, role: "volume", meaning: "chance" },
+  { name: "Renoncule", family: "coral", form: "rose", petals: 18, size: 100, role: "detail", meaning: "charme" },
+  { name: "Dahlia", family: "coral", form: "dahlia", petals: 28, size: 122, role: "etoile", meaning: "joie" },
+  { name: "Cosmos", family: "mauve", form: "simple", petals: 10, size: 94, role: "legerete", meaning: "harmonie" },
+  { name: "Anemone", family: "purple", form: "simple", petals: 9, size: 100, role: "contraste", meaning: "attention" },
+  { name: "Lavande", family: "purple", form: "sprig", petals: 14, size: 96, role: "parfum", meaning: "calme" },
+  { name: "Hortensia", family: "blue", form: "cluster", petals: 24, size: 132, role: "nuage", meaning: "gratitude" },
+  { name: "Myosotis", family: "blue", form: "cluster", petals: 16, size: 88, role: "souvenir", meaning: "memoire" },
+  { name: "Marguerite creme", family: "cream", form: "simple", petals: 13, size: 102, role: "lumiere", meaning: "franchise" },
+  { name: "Freesia", family: "yellow", form: "sprig", petals: 10, size: 96, role: "accent", meaning: "confiance" },
+  { name: "Mimosa", family: "yellow", form: "cluster", petals: 22, size: 88, role: "soleil", meaning: "tendresse" },
 ];
 
 const fallbackColors = {
@@ -62,16 +62,38 @@ const fallbackColors = {
   green: "#7f9769",
 };
 
+const wildColors = [
+  "#e84f6f",
+  "#f39a3d",
+  "#f2ce4f",
+  "#f6e8c6",
+  "#8fc7dc",
+  "#7b5aae",
+  "#c45f9f",
+  "#88a765",
+  "#de6b5f",
+  "#b9d88f",
+];
+
 const positions = [
-  { angle: -1, stem: 335, scale: 1.04 },
-  { angle: -16, stem: 306, scale: 0.92 },
-  { angle: 15, stem: 310, scale: 0.96 },
-  { angle: -28, stem: 270, scale: 0.82 },
-  { angle: 27, stem: 270, scale: 0.84 },
-  { angle: -7, stem: 275, scale: 0.76 },
-  { angle: 8, stem: 262, scale: 0.72 },
-  { angle: -22, stem: 230, scale: 0.68 },
-  { angle: 23, stem: 230, scale: 0.68 },
+  { x: 50, y: 27, scale: 1.08, depth: 12, curve: 0, base: 0, lift: -8 },
+  { x: 42, y: 30, scale: 1.04, depth: 11, curve: -30, base: -7, lift: -6 },
+  { x: 58, y: 30, scale: 1.04, depth: 11, curve: 30, base: 7, lift: -6 },
+  { x: 35, y: 35, scale: 1.0, depth: 9, curve: -52, base: -13, lift: -4 },
+  { x: 65, y: 35, scale: 1.0, depth: 9, curve: 52, base: 13, lift: -4 },
+  { x: 49, y: 36, scale: 1.14, depth: 14, curve: -8, base: -1, lift: -2 },
+  { x: 42, y: 40, scale: 1.08, depth: 13, curve: -28, base: -6, lift: 0 },
+  { x: 57, y: 40, scale: 1.08, depth: 13, curve: 28, base: 6, lift: 0 },
+  { x: 36, y: 43, scale: 0.98, depth: 8, curve: -58, base: -16, lift: 2 },
+  { x: 64, y: 43, scale: 0.98, depth: 8, curve: 58, base: 16, lift: 2 },
+  { x: 45, y: 45, scale: 1.0, depth: 10, curve: -24, base: -8, lift: 5 },
+  { x: 55, y: 45, scale: 1.0, depth: 10, curve: 24, base: 8, lift: 5 },
+  { x: 50, y: 42, scale: 1.05, depth: 15, curve: 2, base: 0, lift: 4 },
+  { x: 31, y: 38, scale: 0.86, depth: 8, curve: -58, base: -14, lift: 0 },
+  { x: 69, y: 38, scale: 0.86, depth: 8, curve: 58, base: 14, lift: 0 },
+  { x: 39, y: 48, scale: 0.9, depth: 11, curve: -34, base: -7, lift: 6 },
+  { x: 61, y: 48, scale: 0.9, depth: 11, curve: 34, base: 7, lift: 6 },
+  { x: 50, y: 50, scale: 0.94, depth: 16, curve: 0, base: 0, lift: 7 },
 ];
 
 const stemBaseBottom = 110;
@@ -81,6 +103,7 @@ const stemLayer = document.querySelector("#stemLayer");
 const swatches = document.querySelector("#swatches");
 const flowerList = document.querySelector("#flowerList");
 const regenerate = document.querySelector("#regenerate");
+const randomize = document.querySelector("#randomize");
 const paletteName = document.querySelector("#paletteName");
 const bouquetNumber = document.querySelector("#bouquetNumber");
 const bouquetTitle = document.querySelector("#bouquetTitle");
@@ -120,45 +143,143 @@ function chooseFlowers(palette) {
   return chosen.slice(0, positions.length);
 }
 
-function petalPath(form) {
-  if (form === "dahlia") return "M 0 -34 C 10 -30 14 -12 6 0 C 3 6 -3 6 -6 0 C -14 -12 -10 -30 0 -34";
-  if (form === "rose") return "M 0 -32 C 16 -25 18 -7 6 3 C 1 8 -8 6 -10 -1 C -14 -14 -10 -27 0 -32";
-  if (form === "sprig") return "M 0 -28 C 9 -24 12 -11 5 -2 C 1 4 -6 3 -8 -3 C -10 -13 -8 -24 0 -28";
-  return "M 0 -34 C 15 -24 18 -8 7 3 C 2 8 -6 8 -10 2 C -18 -10 -13 -27 0 -34";
+function chooseRandomFlowers() {
+  const chosen = shuffle(flowerDatabase);
+
+  while (chosen.length < positions.length) {
+    chosen.push(pick(flowerDatabase));
+  }
+
+  return shuffle(chosen).slice(0, positions.length);
 }
 
-function flowerSvg(flower, color, palette) {
-  const petal = petalPath(flower.form);
-  const center = flower.family === "cream" ? "#c78b3e" : "#f1c86e";
-  const inner = palette.colors[1] || color;
-  const rotateStep = 360 / flower.petals;
-  const petals = Array.from({ length: flower.petals }, (_, index) => {
-    const rotate = index * rotateStep;
-    const scale = flower.form === "cluster" ? 0.54 + (index % 3) * 0.07 : 1;
-    const distance = flower.form === "cluster" ? 14 + (index % 5) * 4 : 0;
-    const opacity = 0.9 - (index % 4) * 0.035;
-    return `<path d="${petal}" fill="${index % 2 ? color : inner}" opacity="${opacity}" transform="rotate(${rotate}) translate(0 ${distance}) scale(${scale})"/>`;
+function createRandomPalette() {
+  return {
+    name: "Mode aleatoire",
+    title: "Bouquet surprise",
+    mood: "Aucune palette, aucune regle: les fleurs et les couleurs se melangent librement.",
+    families: Object.keys(fallbackColors),
+    colors: shuffle(wildColors).slice(0, 5),
+  };
+}
+
+function shadeColor(hex, percent) {
+  const value = hex.replace("#", "");
+  const number = Number.parseInt(value, 16);
+  const amount = Math.round(2.55 * percent);
+  const red = clamp((number >> 16) + amount, 0, 255);
+  const green = clamp(((number >> 8) & 0x00ff) + amount, 0, 255);
+  const blue = clamp((number & 0x0000ff) + amount, 0, 255);
+  return `#${(0x1000000 + red * 0x10000 + green * 0x100 + blue).toString(16).slice(1)}`;
+}
+
+function petalPath(form, width, length, pinch = 0) {
+  if (form === "dahlia") {
+    return `M0 ${-length} C${width * 0.55} ${-length * 0.92} ${width * 0.78} ${-length * 0.36} ${width * 0.18} ${-pinch} C${width * 0.06} ${width * 0.18} ${-width * 0.12} ${width * 0.18} ${-width * 0.18} ${-pinch} C${-width * 0.78} ${-length * 0.36} ${-width * 0.55} ${-length * 0.92} 0 ${-length}`;
+  }
+
+  if (form === "rose" || form === "peony") {
+    return `M0 ${-length} C${width * 0.9} ${-length * 0.85} ${width * 0.98} ${-length * 0.22} ${width * 0.28} ${width * 0.08} C${width * 0.04} ${width * 0.26} ${-width * 0.62} ${width * 0.18} ${-width * 0.48} ${-width * 0.1} C${-width * 0.82} ${-length * 0.42} ${-width * 0.42} ${-length * 0.88} 0 ${-length}`;
+  }
+
+  return `M0 ${-length} C${width} ${-length * 0.76} ${width * 0.92} ${-length * 0.22} ${width * 0.22} ${width * 0.08} C${width * 0.02} ${width * 0.24} ${-width * 0.6} ${width * 0.16} ${-width * 0.5} ${-width * 0.1} C${-width * 0.92} ${-length * 0.28} ${-width * 0.7} ${-length * 0.82} 0 ${-length}`;
+}
+
+function layeredPetals(flower, color, palette, variant) {
+  const darker = shadeColor(color, -9);
+  const lighter = shadeColor(color, 10);
+  const accent = palette.colors[(variant + 1) % palette.colors.length] || color;
+  const layers = flower.form === "simple"
+    ? [{ count: flower.petals, radius: 0, width: 13, length: 42 }]
+    : [
+        { count: Math.max(8, Math.round(flower.petals * 0.55)), radius: 3, width: 16, length: 45 },
+        { count: Math.max(7, Math.round(flower.petals * 0.42)), radius: -4, width: 13, length: 34 },
+        { count: Math.max(5, Math.round(flower.petals * 0.26)), radius: -9, width: 10, length: 24 },
+      ];
+
+  return layers.map((layer, layerIndex) => {
+    const step = 360 / layer.count;
+    const offset = variant * 11 + layerIndex * 17;
+    return Array.from({ length: layer.count }, (_, index) => {
+      const jitter = ((index * 37 + variant * 13 + layerIndex * 19) % 17) - 8;
+      const rotate = index * step + offset + jitter * 0.55;
+      const scaleX = 0.86 + ((index + variant + layerIndex) % 5) * 0.045;
+      const scaleY = 0.9 + ((index * 2 + variant) % 6) * 0.035;
+      const fill = layerIndex === 0 ? (index % 3 ? color : lighter) : (index % 2 ? darker : accent);
+      const opacity = layerIndex === 0 ? 0.9 : 0.84;
+      const path = petalPath(flower.form, layer.width, layer.length, layer.radius);
+      return `<path d="${path}" fill="${fill}" opacity="${opacity}" transform="rotate(${rotate}) translate(0 ${layer.radius}) scale(${scaleX} ${scaleY})"/>`;
+    }).join("");
+  }).join("");
+}
+
+function clusterBlossoms(flower, color, palette, variant) {
+  const colors = [color, shadeColor(color, 12), palette.colors[2] || color];
+  return Array.from({ length: flower.petals }, (_, index) => {
+    const angle = index * (360 / flower.petals) + ((index * 23 + variant) % 19);
+    const ring = index % 5;
+    const radius = 7 + ring * 5 + (index % 2) * 3;
+    const x = Math.cos((angle * Math.PI) / 180) * radius;
+    const y = Math.sin((angle * Math.PI) / 180) * radius;
+    const petalColor = colors[index % colors.length];
+    return `<g transform="translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${angle}) scale(${0.34 + ring * 0.035})">
+      ${layeredPetals({ ...flower, form: "simple", petals: 5 }, petalColor, palette, variant + index)}
+      <circle r="7" fill="#e9c66c"/>
+    </g>`;
+  }).join("");
+}
+
+function sprigSvg(flower, color, palette, variant) {
+  const blossoms = Array.from({ length: flower.petals + 4 }, (_, index) => {
+    const angle = index * (360 / (flower.petals + 4)) + variant * 5;
+    const ring = index % 4;
+    const radius = 7 + ring * 5;
+    const x = Math.cos((angle * Math.PI) / 180) * radius;
+    const y = Math.sin((angle * Math.PI) / 180) * radius - 2;
+    const scale = 0.2 + (index % 4) * 0.025;
+    const hue = index % 2 ? color : shadeColor(color, 12);
+    return `<g transform="translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${angle.toFixed(1)}) scale(${scale})">
+      ${layeredPetals({ ...flower, form: "simple", petals: 6 }, hue, palette, variant + index)}
+      <circle r="6" fill="#e8c66d"/>
+    </g>`;
   }).join("");
 
   if (flower.form === "sprig") {
-    const blossoms = Array.from({ length: flower.petals }, (_, index) => {
-      const x = index % 2 ? 14 : -14;
-      const y = -44 + index * 8;
-      const scale = 0.28 + (index % 3) * 0.03;
-      return `<g transform="translate(${x} ${y}) scale(${scale})">${petals}</g>`;
-    }).join("");
-
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-70 -90 140 150" role="img" aria-label="${flower.name}">
-      <path d="M0 62 C -6 20 4 -18 0 -70" fill="none" stroke="#657f58" stroke-width="5" stroke-linecap="round"/>
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-70 -70 140 140" role="img" aria-label="${flower.name}">
       ${blossoms}
+      <circle r="12" fill="#e8c66d" opacity="0.78"/>
+      <circle r="5" fill="#80633b" opacity="0.34"/>
     </svg>`;
   }
+}
+
+function flowerSvg(flower, color, palette, variant) {
+  if (flower.form === "sprig") {
+    return sprigSvg(flower, color, palette, variant);
+  }
+
+  const center = flower.family === "cream" ? "#c78b3e" : "#f1c86e";
+  const petals = flower.form === "cluster"
+    ? clusterBlossoms(flower, color, palette, variant)
+    : layeredPetals(flower, color, palette, variant);
+  const centerDots = Array.from({ length: 9 }, (_, index) => {
+    const angle = index * 40 + variant * 7;
+    const x = Math.cos((angle * Math.PI) / 180) * (6 + (index % 3));
+    const y = Math.sin((angle * Math.PI) / 180) * (6 + (index % 3));
+    return `<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="2.1" fill="#80633b" opacity="0.48"/>`;
+  }).join("");
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-70 -70 140 140" role="img" aria-label="${flower.name}">
-    <g>
+    <g filter="url(#petalShadow)">
+      <defs>
+        <filter id="petalShadow" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#5c3a2f" flood-opacity="0.16"/>
+        </filter>
+      </defs>
       ${petals}
       <circle r="15" fill="${center}"/>
-      <circle r="7" fill="#6f5334" opacity="0.5"/>
+      ${centerDots}
+      <circle r="5.5" fill="#6f5334" opacity="0.38"/>
     </g>
   </svg>`;
 }
@@ -167,14 +288,50 @@ function svgToDataUrl(svg) {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 }
 
-function drawBouquet() {
-  const palette = pick(palettes);
-  const flowers = chooseFlowers(palette);
+function bezierPoint(start, controlOne, controlTwo, end, t) {
+  const inverse = 1 - t;
+  return {
+    x: inverse ** 3 * start.x + 3 * inverse ** 2 * t * controlOne.x + 3 * inverse * t ** 2 * controlTwo.x + t ** 3 * end.x,
+    y: inverse ** 3 * start.y + 3 * inverse ** 2 * t * controlOne.y + 3 * inverse * t ** 2 * controlTwo.y + t ** 3 * end.y,
+  };
+}
+
+function createStemSvg(stageWidth, stageHeight, base, tip, curve, index) {
+  const side = tip.x >= base.x ? 1 : -1;
+  const controlOne = {
+    x: base.x + side * 10 + curve * 0.16,
+    y: base.y + (tip.y - base.y) * 0.36,
+  };
+  const controlTwo = {
+    x: tip.x - side * Math.abs(curve) * 0.32,
+    y: tip.y + (base.y - tip.y) * 0.34,
+  };
+  const path = `M ${base.x.toFixed(1)} ${base.y.toFixed(1)} C ${controlOne.x.toFixed(1)} ${controlOne.y.toFixed(1)}, ${controlTwo.x.toFixed(1)} ${controlTwo.y.toFixed(1)}, ${tip.x.toFixed(1)} ${tip.y.toFixed(1)}`;
+  const stemWidth = 3 + (index % 3) * 0.22;
+  const leaves = [0.58].map((position, leafIndex) => {
+    const point = bezierPoint(base, controlOne, controlTwo, tip, position);
+    const leafSide = (index + leafIndex) % 2 ? 1 : -1;
+    const rotation = leafSide * (24 + leafIndex * 8) + curve * 0.06;
+    const scale = 0.62 + leafIndex * 0.08;
+    return `<path d="M0 0 C16 -10 31 -4 38 8 C20 14 7 13 0 0" fill="#6f8c62" opacity="0.56" transform="translate(${point.x.toFixed(1)} ${point.y.toFixed(1)}) rotate(${rotation.toFixed(1)}) scale(${scale.toFixed(2)})"/>`;
+  }).join("");
+  return `<svg class="stem" viewBox="0 0 ${stageWidth} ${stageHeight}" aria-hidden="true">
+    <path d="${path}" fill="none" stroke="#5f7b59" stroke-width="${stemWidth}" stroke-linecap="round"/>
+    <path d="${path}" fill="none" stroke="rgba(255,255,255,0.34)" stroke-width="1.2" stroke-linecap="round" transform="translate(-1 0)"/>
+    ${leaves}
+  </svg>`;
+}
+
+function drawBouquet(mode = "harmonious") {
+  const isRandom = mode === "random";
+  const palette = isRandom ? createRandomPalette() : pick(palettes);
+  const flowers = isRandom ? chooseRandomFlowers() : chooseFlowers(palette);
   const seed = Math.floor(Math.random() * 9000) + 1000;
   const stageBox = document.querySelector(".bouquet-stage").getBoundingClientRect();
   const stageWidth = stageBox.width || 720;
   const stageHeight = stageBox.height || 500;
   const stemBaseY = stageHeight - stemBaseBottom;
+  const headNarrowing = stageWidth < 520 ? 0.96 : 1;
 
   flowerLayer.replaceChildren();
   stemLayer.replaceChildren();
@@ -198,34 +355,56 @@ function drawBouquet() {
 
   flowers.forEach((flower, index) => {
     const layout = positions[index];
-    const color = familyColor(palette, flower.family);
-    const stemAngle = layout.angle + randomBetween(-3, 3);
-    const stemHeight = layout.stem + randomBetween(-14, 14);
-    const radians = (stemAngle * Math.PI) / 180;
-    const tipX = stageWidth / 2 + Math.sin(radians) * stemHeight;
-    const tipY = stemBaseY - Math.cos(radians) * stemHeight;
+    const color = isRandom ? pick(wildColors) : familyColor(palette, flower.family);
+    const normalizedBloomSize = clamp(flower.size, 88, 106);
+    const flowerSize = normalizedBloomSize * (1.08 + randomBetween(-0.03, 0.08));
+    const flowerScale = layout.scale + randomBetween(-0.035, 0.055);
+    const stemCurve = layout.curve + randomBetween(-10, 10);
+    const clusterX = 50 + (layout.x - 50) * headNarrowing;
+    const rawTipX = (clusterX + randomBetween(-1.1, 1.1)) * stageWidth / 100;
+    const rawTipY = (layout.y + randomBetween(-1.2, 1.2)) * stageHeight / 100;
+    const sideMargin = clamp(flowerSize * 0.48, stageWidth * 0.13, stageWidth * 0.2);
+    const tipX = clamp(rawTipX, sideMargin, stageWidth - sideMargin);
+    const tipY = clamp(rawTipY, stageHeight * 0.12, stageHeight * 0.56);
     const x = clamp((tipX / stageWidth) * 100, 8, 92);
     const y = clamp((tipY / stageHeight) * 100, 8, 76);
-    const tilt = randomBetween(-14, 14);
+    const baseX = stageWidth / 2 + layout.base + randomBetween(-5, 5);
+    const baseY = stemBaseY + layout.lift + randomBetween(-3, 4);
+    const attachRatio = 0.38;
+    const stemEndX = tipX + (baseX - tipX) * attachRatio;
+    const stemEndY = tipY + (baseY - tipY) * attachRatio;
+    const tilt = (layout.x - 50) * 0.18 + randomBetween(-12, 12);
 
-    const stem = document.createElement("span");
-    stem.className = "stem";
-    stem.style.setProperty("--angle", `${stemAngle}deg`);
-    stem.style.setProperty("--stem-height", `${stemHeight}px`);
+    const stemTemplate = document.createElement("template");
+    stemTemplate.innerHTML = createStemSvg(
+      stageWidth,
+      stageHeight,
+      { x: baseX, y: baseY },
+      { x: stemEndX, y: stemEndY },
+      stemCurve,
+      index,
+    ).trim();
+    const stem = stemTemplate.content.firstElementChild;
+    stem.style.zIndex = String(layout.depth);
     stemLayer.append(stem);
 
     const flowerWrap = document.createElement("span");
     flowerWrap.className = "flower";
     flowerWrap.style.setProperty("--x", `${x}%`);
     flowerWrap.style.setProperty("--y", `${y}%`);
-    flowerWrap.style.setProperty("--size", `${flower.size}px`);
+    flowerWrap.style.setProperty("--size", `${flowerSize}px`);
     flowerWrap.style.setProperty("--tilt", `${tilt}deg`);
-    flowerWrap.style.setProperty("--scale", layout.scale);
+    flowerWrap.style.setProperty("--scale", flowerScale);
     flowerWrap.style.setProperty("--delay", `${index * 42}ms`);
+    flowerWrap.style.setProperty("--bloom-color", color);
+    flowerWrap.style.setProperty("--bloom-light", shadeColor(color, 12));
+    flowerWrap.style.setProperty("--bloom-shadow", shadeColor(color, -18));
+    flowerWrap.style.zIndex = String(20 + layout.depth);
+    flowerWrap.style.opacity = String(layout.depth < 2 ? 0.9 : 1);
 
     const img = document.createElement("img");
     img.alt = flower.name;
-    img.src = svgToDataUrl(flowerSvg(flower, color, palette));
+    img.src = svgToDataUrl(flowerSvg(flower, color, palette, index + seed));
     flowerWrap.append(img);
     flowerLayer.append(flowerWrap);
 
@@ -245,5 +424,6 @@ function drawBouquet() {
   });
 }
 
-regenerate.addEventListener("click", drawBouquet);
+regenerate.addEventListener("click", () => drawBouquet("harmonious"));
+randomize.addEventListener("click", () => drawBouquet("random"));
 drawBouquet();

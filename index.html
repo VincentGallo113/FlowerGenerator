@@ -10,13 +10,14 @@
     <main class="page-shell">
       <section class="bouquet-view" aria-labelledby="page-title">
         <div class="intro">
-          <p class="kicker">Joyeux anniversaire</p>
+          <p class="kicker">Joyeux anniversaire Sarah</p>
           <h1 id="page-title">
             <span class="title-line">Un bouquet</span>
-            <span class="title-line">pour toi</span>
+            <span class="title-line">rien que pour toi</span>
           </h1>
-          <p class="dedication">Chaque visite compose une nouvelle harmonie florale, juste pour elle.</p>
-        </div>
+          <p class="dedication">Parce que tu mérites bien tous les bouquets du monde.</p>
+          <p class="dedication">Vu que je ne saurais jamais assez te dire je t'aime, je t'ai composé assez de bouquets pour te le montrer</p>
+</div>
 
         <div class="bouquet-stage" aria-label="Bouquet genere">
           <div class="stage-glow"></div>
@@ -47,14 +48,21 @@
           <h3>Fleurs choisies</h3>
           <ul id="flowerList" class="flower-list"></ul>
         </div>
-
-        <button id="regenerate" class="regenerate" type="button" aria-label="Generer un nouveau bouquet">
-          <span aria-hidden="true">✦</span>
-          Nouveau bouquet
-        </button>
+        <div class="bouquet-actions">
+          <button id="regenerate" class="regenerate" type="button" aria-label="Generer un nouveau bouquet harmonieux">
+            <span aria-hidden="true">*</span>
+            Nouveau bouquet
+          </button>
+          <button id="randomize" class="regenerate secondary" type="button" aria-label="Generer un bouquet aleatoire sans palette">
+            <span aria-hidden="true">?</span>
+            Bouquet surprise
+          </button>
+        </div>
       </aside>
     </main>
 
     <script src="app.js"></script>
+
+
   </body>
 </html>
