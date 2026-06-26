@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Un bouquet pour toi</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="bouquet-view" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="kicker">Joyeux anniversaire</p>
+          <h1 id="page-title">
+            <span class="title-line">Un bouquet</span>
+            <span class="title-line">pour toi</span>
+          </h1>
+          <p class="dedication">Chaque visite compose une nouvelle harmonie florale, juste pour elle.</p>
+        </div>
+
+        <div class="bouquet-stage" aria-label="Bouquet genere">
+          <div class="stage-glow"></div>
+          <div id="stemLayer" class="stem-layer"></div>
+          <div id="flowerLayer" class="flower-layer"></div>
+          <div class="wrap">
+            <div class="wrap-left"></div>
+            <div class="wrap-right"></div>
+            <div class="ribbon"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="bouquet-panel" aria-label="Details du bouquet">
+        <div class="panel-topline">
+          <span id="paletteName">Palette</span>
+          <span id="bouquetNumber">#0000</span>
+        </div>
+
+        <div>
+          <h2 id="bouquetTitle">Bouquet</h2>
+          <p id="bouquetMood" class="mood"></p>
+        </div>
+
+        <div id="swatches" class="swatches" aria-label="Couleurs du bouquet"></div>
+
+        <div>
+          <h3>Fleurs choisies</h3>
+          <ul id="flowerList" class="flower-list"></ul>
+        </div>
+
+        <button id="regenerate" class="regenerate" type="button" aria-label="Generer un nouveau bouquet">
+          <span aria-hidden="true">✦</span>
+          Nouveau bouquet
+        </button>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
