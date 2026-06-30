@@ -54,7 +54,7 @@ const palettes = [
     mood: "Pardonnes moi d'être comme ça mon amour.",
     families: ["purple", "blue", "mauve", "pink"],
     colors: ["#86609a", "#8ab4d2", "#b887b4", "#df7891", "#86609a"],
-  },
+  }
 ];
 const groguPalette = {
   name: "Bouquet Grogu",
