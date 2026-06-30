@@ -48,6 +48,13 @@ const palettes = [
     families: ["red", "pink", "coral", "purple"],
     colors: ["#c92f2f", "#df7891", "#e8a1aa", "#ee8c70", "#86609a"],
   },
+  {
+    name: "Regret",
+    title: "Pardon sincère",
+    mood: "Pardonnes moi d'être comme ça mon amour.",
+    families: ["purple", "blue", "mauve", "pink"],
+    colors: ["#86609a", "#8ab4d2", "#b887b4", "#df7891", "#86609a"],
+  },
 ];
 const groguPalette = {
   name: "Bouquet Grogu",
