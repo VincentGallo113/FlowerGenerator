@@ -49,7 +49,22 @@ const palettes = [
     colors: ["#c92f2f", "#df7891", "#e8a1aa", "#ee8c70", "#86609a"],
   },
 ];
-
+const groguPalette = {
+  name: "Bouquet Grogu",
+  title: "Grogu à gogo",
+  mood: "Un bouquet avec notre fils!!!",
+  families: ["grogu", "green", "cream", "brown"],
+  colors: ["#8fa46c", "#d7c17a", "#6f7f58", "#8c6045", "#f1d69a"],
+  image: "assets/Grogu.png",
+};
+const groguFilters = [
+  "hue-rotate(-10deg) saturate(1.08) brightness(1.03)",
+  "hue-rotate(8deg) saturate(0.98) brightness(1.08)",
+  "hue-rotate(18deg) saturate(1.12) brightness(0.96)",
+  "hue-rotate(-18deg) saturate(1.05) brightness(0.98)",
+  "sepia(0.12) saturate(1.1) brightness(1.02)",
+  "hue-rotate(28deg) saturate(0.92) brightness(1.06)",
+];
 const flowerDatabase = [
   { name: "Rose anglaise", family: "pink", form: "rose", petals: 18, size: 116, role: "coeur", meaning: "amour doux" },
   { name: "Pivoine", family: "pink", form: "peony", petals: 24, size: 136, role: "volume", meaning: "chance" },
@@ -125,10 +140,13 @@ const swatches = document.querySelector("#swatches");
 const flowerList = document.querySelector("#flowerList");
 const regenerate = document.querySelector("#regenerate");
 const randomize = document.querySelector("#randomize");
+const groguize = document.querySelector("#groguize");
+const latest = document.querySelector("#latest");
 const paletteName = document.querySelector("#paletteName");
 const bouquetNumber = document.querySelector("#bouquetNumber");
 const bouquetTitle = document.querySelector("#bouquetTitle");
 const bouquetMood = document.querySelector("#bouquetMood");
+const selectionTitle = document.querySelector("#selectionTitle");
 
 function randomBetween(min, max) {
   return min + Math.random() * (max - min);
@@ -182,6 +200,25 @@ function createRandomPalette() {
     families: Object.keys(fallbackColors),
     colors: shuffle(wildColors).slice(0, 5),
   };
+}
+function chooseGroguPhotos() {
+  const names = [
+    "Gourmand",
+    "Mignon",
+    "Petit",
+    "FILSSS!!!",
+    "Mandalorien",
+  ];
+
+  return positions.map((_, index) => ({
+    name: names[index % names.length],
+    family: "grogu",
+    form: "photo",
+    size: 108 + (index % 4) * 4,
+    role: "force",
+    meaning: index % 2 ? "" : "",
+    image: groguPalette.image,
+  }));
 }
 
 function shadeColor(hex, percent) {
@@ -345,8 +382,10 @@ function createStemSvg(stageWidth, stageHeight, base, tip, curve, index) {
 
 function drawBouquet(mode = "harmonious") {
   const isRandom = mode === "random";
-  const palette = isRandom ? createRandomPalette() : pick(palettes);
-  const flowers = isRandom ? chooseRandomFlowers() : chooseFlowers(palette);
+  const isGrogu = mode === "grogu";
+  const isLatest = mode === "latest";
+  const palette = isGrogu ? groguPalette : isRandom ? createRandomPalette() : isLatest ? palettes[palettes.length - 1] : pick(palettes);
+  const flowers = isGrogu ? chooseGroguPhotos() : isRandom ? chooseRandomFlowers() : chooseFlowers(palette);
   const seed = Math.floor(Math.random() * 9000) + 1000;
   const stageBox = document.querySelector(".bouquet-stage").getBoundingClientRect();
   const stageWidth = stageBox.width || 720;
@@ -363,6 +402,7 @@ function drawBouquet(mode = "harmonious") {
   bouquetNumber.textContent = `#${seed}`;
   bouquetTitle.textContent = palette.title;
   bouquetMood.textContent = palette.mood;
+  selectionTitle.textContent = isGrogu ? "Petits Grogu choisis" : "Fleurs choisies";
 
   palette.colors.forEach((color) => {
     const swatch = document.createElement("span");
@@ -376,8 +416,8 @@ function drawBouquet(mode = "harmonious") {
 
   flowers.forEach((flower, index) => {
     const layout = positions[index];
-    const color = isRandom ? pick(wildColors) : familyColor(palette, flower.family);
-    const normalizedBloomSize = clamp(flower.size, 88, 106);
+    const color = isGrogu ? palette.colors[index % palette.colors.length] : isRandom ? pick(wildColors) : familyColor(palette, flower.family);
+    const normalizedBloomSize = isGrogu ? clamp(flower.size, 102, 120) : clamp(flower.size, 88, 106);
     const flowerSize = normalizedBloomSize * (1.08 + randomBetween(-0.03, 0.08));
     const flowerScale = layout.scale + randomBetween(-0.035, 0.055);
     const stemCurve = layout.curve + randomBetween(-10, 10);
@@ -410,7 +450,7 @@ function drawBouquet(mode = "harmonious") {
     stemLayer.append(stem);
 
     const flowerWrap = document.createElement("span");
-    flowerWrap.className = "flower";
+    flowerWrap.className = isGrogu ? "flower grogu-flower" : "flower";
     flowerWrap.style.setProperty("--x", `${x}%`);
     flowerWrap.style.setProperty("--y", `${y}%`);
     flowerWrap.style.setProperty("--size", `${flowerSize}px`);
@@ -420,12 +460,15 @@ function drawBouquet(mode = "harmonious") {
     flowerWrap.style.setProperty("--bloom-color", color);
     flowerWrap.style.setProperty("--bloom-light", shadeColor(color, 12));
     flowerWrap.style.setProperty("--bloom-shadow", shadeColor(color, -18));
+    if (isGrogu) {
+      flowerWrap.style.setProperty("--grogu-filter", groguFilters[(index + seed) % groguFilters.length]);
+    }
     flowerWrap.style.zIndex = String(20 + layout.depth);
     flowerWrap.style.opacity = String(layout.depth < 2 ? 0.9 : 1);
 
     const img = document.createElement("img");
     img.alt = flower.name;
-    img.src = svgToDataUrl(flowerSvg(flower, color, palette, index + seed));
+    img.src = isGrogu ? flower.image : svgToDataUrl(flowerSvg(flower, color, palette, index + seed));
     flowerWrap.append(img);
     flowerLayer.append(flowerWrap);
 
@@ -447,4 +490,6 @@ function drawBouquet(mode = "harmonious") {
 
 regenerate.addEventListener("click", () => drawBouquet("harmonious"));
 randomize.addEventListener("click", () => drawBouquet("random"));
+groguize.addEventListener("click", () => drawBouquet("grogu"));
+latest.addEventListener("click", () => drawBouquet("latest"));
 drawBouquet();

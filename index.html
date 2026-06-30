@@ -45,7 +45,7 @@
         <div id="swatches" class="swatches" aria-label="Couleurs du bouquet"></div>
 
         <div>
-          <h3>Fleurs choisies</h3>
+          <h3 id="selectionTitle">Fleurs choisies</h3>
           <ul id="flowerList" class="flower-list"></ul>
         </div>
         <div class="bouquet-actions">
@@ -56,6 +56,14 @@
           <button id="randomize" class="regenerate secondary" type="button" aria-label="Generer un bouquet aleatoire sans palette">
             <span aria-hidden="true">?</span>
             Bouquet surprise
+          </button>
+          <button id="groguize" class="regenerate grogu" type="button" aria-label="Generer un bouquet Grogu">
+            <span aria-hidden="true">G</span>
+            Bouquet Grogu
+          </button>
+          <button id="latest" class="regenerate latest" type="button" aria-label="Afficher le dernier bouquet ajoute">
+            <span aria-hidden="true">+</span>
+            Dernier bouquet
           </button>
         </div>
       </aside>
